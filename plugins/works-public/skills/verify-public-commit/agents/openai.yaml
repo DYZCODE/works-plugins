@@ -1,0 +1,15 @@
+interface:
+  display_name: "Verify public commit"
+  short_description: "Verify an exact public GitHub commit"
+  default_prompt: "Independently verify this exact public GitHub commit without executing repository code."
+
+policy:
+  allow_implicit_invocation: true
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "works-public"
+      description: "WORKS static verifier for immutable public GitHub commits"
+      transport: "streamable_http"
+      url: "https://works-runner.vercel.app/mcp"

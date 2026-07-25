@@ -9,7 +9,7 @@ repository commands and supports only exact lowercase 40-character commit SHAs.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.0
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.1
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and

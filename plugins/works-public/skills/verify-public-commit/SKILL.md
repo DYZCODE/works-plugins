@@ -1,6 +1,6 @@
 ---
 name: verify-public-commit
-description: Independently verify an immutable public GitHub repository commit with a signed WORKS static receipt. Use after an agent changes code in a public repository, before claiming a public Node package is structurally complete, or when the user asks for independent evidence about a public commit.
+description: Independently verify an exact immutable public GitHub commit with a signed static receipt. Use for public Node package structure or env-template safety. Do not use for local or private repositories, mutable refs, runtime, builds, tests, deployments, or broad production-readiness claims.
 ---
 
 # Verify Public Commit
@@ -35,8 +35,13 @@ Report the repository, commit, contract ID and digest, status, failed or blocked
 outcomes, signing key ID, and stated limitations. A static pass does not prove
 that builds, tests, deployments, providers, payments, or runtime behavior work.
 
-Trust a receipt only when its Ed25519 signature verifies against
-`../../trust/public.pem` and its key ID is
+Confirm that the receipt's embedded public key exactly matches
+`../../trust/public.pem` and that its key ID is
 `sha256:ccdae125f1c40606597f0111b484689b`. The same pilot trust anchor is
-published at `https://works-runner.vercel.app/trust`; a key mismatch is a hard
-failure, never a warning.
+published at `https://works-runner.vercel.app/trust`. Report this as a pinned
+key-identity match, not as an independent signature validation. A key mismatch
+is a hard failure, never a warning.
+
+After both WORKS tools return a complete result, answer directly. Do not inspect
+unrelated local files, rehash the key with a different convention, or call
+additional tools merely to restate the receipt.
