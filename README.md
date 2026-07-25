@@ -9,7 +9,7 @@ repository commands and supports only exact lowercase 40-character commit SHAs.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref main
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.0
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -23,9 +23,10 @@ install **WORKS Public Verifier**.
 - Source: public GitHub repositories at immutable commits
 - Execution: static checks only
 
-The default workflow does not send experiment telemetry. With explicit consent,
-WORKS records aggregate verification metrics and a keyed installation hash. It
-does not log the repository URL, commit SHA, tool body, or credentials.
+WORKS stores bounded operational counts, duration, contract ID, receipt ID, and
+status for every verification. It does not store the repository URL, commit
+SHA, source, tool body, or credentials. Only explicit experiment consent adds
+a keyed installation hash.
 
 A passing static receipt proves only the outcomes declared by its contract. It
 does not prove builds, tests, deployments, payments, runtime behavior, or market
