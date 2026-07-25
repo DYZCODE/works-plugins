@@ -1,0 +1,8 @@
+{
+  "schema": "works.dev/trust-anchor/v1",
+  "status": "pilot",
+  "algorithm": "ed25519",
+  "key_id": "sha256:ccdae125f1c40606597f0111b484689b",
+  "endpoint": "https://works-runner.vercel.app/trust",
+  "scope": "receipts returned by https://works-runner.vercel.app/mcp"
+}

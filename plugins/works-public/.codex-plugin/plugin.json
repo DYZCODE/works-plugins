@@ -1,0 +1,29 @@
+{
+  "name": "works-public",
+  "version": "0.1.0",
+  "description": "Independent static verification for immutable public GitHub commits.",
+  "author": {
+    "name": "WORKS",
+    "url": "https://github.com/DYZCODE"
+  },
+  "repository": "https://github.com/DYZCODE/works-plugins",
+  "keywords": [
+    "verification",
+    "receipts",
+    "github",
+    "coding-agents"
+  ],
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "WORKS Public Verifier",
+    "shortDescription": "Verify an immutable public GitHub commit.",
+    "longDescription": "Runs pinned, fail-closed static contracts against exact public GitHub commits and returns signed evidence-backed receipts.",
+    "developerName": "WORKS",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": "Verify this public repository commit with WORKS and report the exact evidence and limitations."
+  }
+}
