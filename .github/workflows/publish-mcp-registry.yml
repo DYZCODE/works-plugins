@@ -22,6 +22,8 @@ jobs:
           set -euo pipefail
           version="${GITHUB_REF_NAME#v}"
           test "$(jq -r '.version' server.json)" = "$version"
+          test "$(jq -r '.name' server.json)" = \
+            "io.github.${GITHUB_REPOSITORY_OWNER}/works-public"
 
       - name: Validate server metadata
         shell: bash

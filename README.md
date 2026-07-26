@@ -1,6 +1,6 @@
 # WORKS Public Verifier
 
-<!-- mcp-name: io.github.dyzcode/works-public -->
+<!-- mcp-name: io.github.DYZCODE/works-public -->
 
 WORKS independently checks an immutable public GitHub commit against a pinned
 static contract and returns a signed receipt. The pilot never executes
@@ -11,7 +11,7 @@ repository commands and supports only exact lowercase 40-character commit SHAs.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.6
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.7
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -22,7 +22,7 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.6
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.7
 claude plugin install works-public@works-plugins
 ```
 
@@ -38,6 +38,10 @@ allowed retry.
 The Registry is currently in preview. The Codex and Claude plugin path remains
 available so supported hosts can also install the strict selection and
 abstention skill.
+
+The `v0.1.6` Registry attempt was rejected before publication because its
+GitHub namespace casing did not match the OIDC grant. `v0.1.7` corrects only
+that metadata and adds an automated namespace check.
 
 ## Pilot evidence
 
