@@ -7,11 +7,11 @@
     "url": "https://github.com/DYZCODE/works-plugins",
     "source": "github"
   },
-  "version": "0.1.4",
+  "version": "0.1.6",
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://works-runner.vercel.app/mcp"
+      "url": "https://works-runner.vercel.app/mcp-registry"
     }
   ]
 }

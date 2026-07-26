@@ -11,7 +11,7 @@ repository commands and supports only exact lowercase 40-character commit SHAs.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.4
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.6
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -22,16 +22,22 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.4
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.6
 claude plugin install works-public@works-plugins
 ```
 
 ## MCP Registry
 
-`server.json` contains the public remote-server metadata for the official MCP
-Registry, but `v0.1.4` is not published there. A tool-only smoke test selected
-the eligible commit, while its mutable-tag control timed out twice. Install the
-plugin so the host also receives the strict selection and abstention skill.
+The official MCP Registry metadata points to a dedicated three-tool endpoint.
+Its frozen Codex gate passed with 20 of 20 eligible verifications, zero
+verification in 20 ineligible controls, 100% eligible response fidelity, and no
+final host errors. Ineligible controls had a 34.8955-second median and a
+67.353-second maximum final wall time. One control recovered on its single
+allowed retry.
+
+The Registry is currently in preview. The Codex and Claude plugin path remains
+available so supported hosts can also install the strict selection and
+abstention skill.
 
 ## Pilot evidence
 
@@ -46,7 +52,8 @@ required reauthentication. No cross-host claim is made.
 
 ## Pilot scope
 
-- MCP endpoint: `https://works-runner.vercel.app/mcp`
+- Plugin MCP endpoint: `https://works-runner.vercel.app/mcp`
+- Registry MCP endpoint: `https://works-runner.vercel.app/mcp-registry`
 - Trust anchor: `https://works-runner.vercel.app/trust`
 - Contracts: `node-package` and `env-safety`
 - Source: public GitHub repositories at immutable commits
