@@ -26,7 +26,7 @@ disabled with `--no-signal`.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.10
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.11
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -37,7 +37,7 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.10
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.11
 claude plugin install works-public@works-plugins
 ```
 
@@ -61,6 +61,8 @@ correct Registry metadata but retained the previous Codex adapter version.
 adds the one-command installer and its bodyless aggregate install signal without
 changing the validated verification tool or trust anchor. `v0.1.10` makes the
 installer replace older tag-pinned marketplace snapshots before reinstalling.
+`v0.1.11` publishes the fresh paired multistack result and adds a locked,
+testable installer package.
 
 ## Pilot evidence
 
@@ -72,6 +74,12 @@ single allowed retry.
 Claude marketplace and plugin manifests validate, but autonomous Claude
 selection was not executed for this release because the local test account
 required reauthentication. No cross-host claim is made.
+
+The fresh repair-agent pilot then compared 20 randomized pairs across Node,
+Python, monolithic, and layered fixtures. WORKS passed 20/20 while the control
+passed 6/20, a 70-point lift. It stayed within the frozen wall-time and verifier
+call budgets; median input tokens increased by 53.24%. Raw results, score, hashes,
+method, and limitations are in [`evidence/`](evidence/README.md).
 
 ## Pilot scope
 

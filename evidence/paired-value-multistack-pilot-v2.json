@@ -1,0 +1,527 @@
+{
+  "schema": "works.dev/paired-agent-benchmark/v1",
+  "experiment_id": "paired-value-multistack-pilot-v2",
+  "model": "gpt-5.6-sol/low",
+  "tasks": [
+    {
+      "task_id": "node-monolith-webhook-checkout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 146741,
+        "input_tokens": 207261,
+        "output_tokens": 5390,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 150048,
+        "input_tokens": 249807,
+        "output_tokens": 4000,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-monolith-cancellation-checkout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 135447,
+        "input_tokens": 186522,
+        "output_tokens": 5213,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 173485,
+        "input_tokens": 352725,
+        "output_tokens": 5094,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-monolith-logout-checkout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 135152,
+        "input_tokens": 217720,
+        "output_tokens": 4870,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 479597,
+        "input_tokens": 484523,
+        "output_tokens": 7322,
+        "verification_attempts": 4,
+        "verification_calls": 4,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-monolith-welcome-checkout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 113053,
+        "input_tokens": 122697,
+        "output_tokens": 4600,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 188788,
+        "input_tokens": 324638,
+        "output_tokens": 5677,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-monolith-webhook-cancellation",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 131692,
+        "input_tokens": 138669,
+        "output_tokens": 4746,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 152112,
+        "input_tokens": 387993,
+        "output_tokens": 4668,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-layered-webhook-welcome",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 119957,
+        "input_tokens": 130969,
+        "output_tokens": 4346,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 132794,
+        "input_tokens": 261802,
+        "output_tokens": 4119,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-layered-cancellation-logout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 105895,
+        "input_tokens": 186776,
+        "output_tokens": 3365,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 115287,
+        "input_tokens": 236389,
+        "output_tokens": 3204,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-layered-logout-welcome",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 100156,
+        "input_tokens": 189194,
+        "output_tokens": 2844,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 77696,
+        "input_tokens": 172634,
+        "output_tokens": 1534,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-layered-checkout-webhook",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 166455,
+        "input_tokens": 238904,
+        "output_tokens": 6273,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 165566,
+        "input_tokens": 298882,
+        "output_tokens": 5145,
+        "verification_attempts": 3,
+        "verification_calls": 3,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "node-layered-cancellation-checkout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 151016,
+        "input_tokens": 186645,
+        "output_tokens": 5343,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 113812,
+        "input_tokens": 246094,
+        "output_tokens": 3016,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-monolith-webhook-cancellation",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 116747,
+        "input_tokens": 112871,
+        "output_tokens": 4349,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 159764,
+        "input_tokens": 335696,
+        "output_tokens": 4548,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-monolith-logout-welcome",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 117549,
+        "input_tokens": 110773,
+        "output_tokens": 4250,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 167441,
+        "input_tokens": 286966,
+        "output_tokens": 4928,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-monolith-checkout-webhook",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 132674,
+        "input_tokens": 108396,
+        "output_tokens": 5081,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 165148,
+        "input_tokens": 280080,
+        "output_tokens": 4884,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-monolith-cancellation-welcome",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 122667,
+        "input_tokens": 182340,
+        "output_tokens": 3339,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 135528,
+        "input_tokens": 254014,
+        "output_tokens": 3938,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-monolith-checkout-logout",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 162594,
+        "input_tokens": 279076,
+        "output_tokens": 5565,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 226296,
+        "input_tokens": 404460,
+        "output_tokens": 7145,
+        "verification_attempts": 4,
+        "verification_calls": 4,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-layered-webhook-logout",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 118294,
+        "input_tokens": 216421,
+        "output_tokens": 3806,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 111513,
+        "input_tokens": 212835,
+        "output_tokens": 3127,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-layered-cancellation-welcome",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 136309,
+        "input_tokens": 197290,
+        "output_tokens": 4517,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 142980,
+        "input_tokens": 289180,
+        "output_tokens": 3982,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-layered-checkout-webhook",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 154547,
+        "input_tokens": 201481,
+        "output_tokens": 6068,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 301456,
+        "input_tokens": 649524,
+        "output_tokens": 7735,
+        "verification_attempts": 6,
+        "verification_calls": 5,
+        "verification_errors": 1
+      }
+    },
+    {
+      "task_id": "python-layered-logout-welcome",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 126870,
+        "input_tokens": 235631,
+        "output_tokens": 4262,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 201467,
+        "input_tokens": 381105,
+        "output_tokens": 5879,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0
+      }
+    },
+    {
+      "task_id": "python-layered-checkout-cancellation",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 158107,
+        "input_tokens": 199517,
+        "output_tokens": 6040,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 101456,
+        "input_tokens": 273962,
+        "output_tokens": 2179,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0
+      }
+    }
+  ]
+}

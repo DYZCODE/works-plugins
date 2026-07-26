@@ -1,0 +1,102 @@
+{
+  "schema": "works.dev/paired-agent-score/v1",
+  "experiment_id": "paired-value-multistack-pilot-v2",
+  "model": "gpt-5.6-sol/low",
+  "verdict": "scale_to_100",
+  "gates": {
+    "sample_sufficient": true,
+    "success_delta_at_least_20_points": true,
+    "retries_reduced_at_least_half": false,
+    "no_success_regression": true,
+    "automatic_selection_at_least_80_percent": true,
+    "verifier_error_rate_at_most_5_percent": true,
+    "median_wall_overhead_at_most_25_percent": true,
+    "verification_calls_within_budget": true,
+    "multistack_segment_coverage": true,
+    "no_runtime_or_fixture_regression": true
+  },
+  "metrics": {
+    "tasks_submitted": 20,
+    "decisive_pairs": 20,
+    "excluded_pairs": 0,
+    "baseline_passed": 6,
+    "works_passed": 20,
+    "baseline_success_rate": 0.3,
+    "works_success_rate": 1,
+    "success_delta_percentage_points": 70,
+    "additional_passes": 14,
+    "baseline_retries": 0,
+    "works_retries": 0,
+    "retry_reduction_ratio": 0,
+    "baseline_wall_ms_total": 2651922,
+    "works_wall_ms_total": 3462234,
+    "wall_ms_delta": 810312,
+    "baseline_wall_ms_median": 132183,
+    "works_wall_ms_median": 155938,
+    "median_wall_overhead_ratio": 0.17971297368042788,
+    "baseline_input_tokens_total": 3649153,
+    "works_input_tokens_total": 6383309,
+    "baseline_input_tokens_median": 187985,
+    "works_input_tokens_median": 288073,
+    "median_input_token_overhead_ratio": 0.5324254594781499,
+    "input_tokens_delta": 2734156,
+    "baseline_output_tokens_total": 94267,
+    "works_output_tokens_total": 92124,
+    "output_tokens_delta": -2143,
+    "works_verification_attempts_total": 43,
+    "works_verification_calls_total": 42,
+    "works_verification_calls_median": 2,
+    "works_verification_calls_max": 5,
+    "works_verification_selection_rate": 1,
+    "works_infrastructure_errors": 1,
+    "works_infrastructure_error_rate": 0.05
+  },
+  "segments": {
+    "runtimes": [
+      {
+        "value": "node24",
+        "decisive_pairs": 10,
+        "baseline_passed": 2,
+        "works_passed": 10,
+        "success_delta_percentage_points": 80
+      },
+      {
+        "value": "python3.13",
+        "decisive_pairs": 10,
+        "baseline_passed": 4,
+        "works_passed": 10,
+        "success_delta_percentage_points": 60
+      }
+    ],
+    "fixtures": [
+      {
+        "value": "test/fixtures/workflow-good",
+        "decisive_pairs": 5,
+        "baseline_passed": 0,
+        "works_passed": 5,
+        "success_delta_percentage_points": 100
+      },
+      {
+        "value": "test/fixtures/workflow-node-layered",
+        "decisive_pairs": 5,
+        "baseline_passed": 2,
+        "works_passed": 5,
+        "success_delta_percentage_points": 60
+      },
+      {
+        "value": "test/fixtures/workflow-python-layered",
+        "decisive_pairs": 5,
+        "baseline_passed": 3,
+        "works_passed": 5,
+        "success_delta_percentage_points": 40
+      },
+      {
+        "value": "test/fixtures/workflow-python-monolith",
+        "decisive_pairs": 5,
+        "baseline_passed": 1,
+        "works_passed": 5,
+        "success_delta_percentage_points": 80
+      }
+    ]
+  }
+}

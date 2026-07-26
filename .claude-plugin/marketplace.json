@@ -11,7 +11,7 @@
       "name": "works-public",
       "source": "./plugins/works-public",
       "description": "Verify exact immutable public GitHub commits without executing repository code.",
-      "version": "0.1.10",
+      "version": "0.1.11",
       "homepage": "https://github.com/DYZCODE/works-plugins",
       "repository": "https://github.com/DYZCODE/works-plugins",
       "license": "MIT",
