@@ -1,0 +1,12 @@
+{
+  "name": "works-public",
+  "version": "0.1.4",
+  "description": "Independent static verification for immutable public GitHub commits.",
+  "author": {
+    "name": "WORKS",
+    "url": "https://github.com/DYZCODE"
+  },
+  "repository": "https://github.com/DYZCODE/works-plugins",
+  "homepage": "https://works-runner.vercel.app/health",
+  "license": "MIT"
+}

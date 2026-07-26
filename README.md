@@ -1,5 +1,7 @@
 # WORKS Public Verifier
 
+<!-- mcp-name: io.github.dyzcode/works-public -->
+
 WORKS independently checks an immutable public GitHub commit against a pinned
 static contract and returns a signed receipt. The pilot never executes
 repository commands and supports only exact lowercase 40-character commit SHAs.
@@ -9,11 +11,38 @@ repository commands and supports only exact lowercase 40-character commit SHAs.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.1
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.4
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
 install **WORKS Public Verifier**.
+
+## Install in Claude Code
+
+Add the same repository as a marketplace and install the plugin:
+
+```console
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.4
+claude plugin install works-public@works-plugins
+```
+
+## MCP Registry
+
+`server.json` contains the public remote-server metadata for the official MCP
+Registry, but `v0.1.4` is not published there. A tool-only smoke test selected
+the eligible commit, while its mutable-tag control timed out twice. Install the
+plugin so the host also receives the strict selection and abstention skill.
+
+## Pilot evidence
+
+The frozen Codex gate passed with 20 of 20 eligible selections, zero activation
+in 20 ineligible controls, complete receipt fidelity, and a 0.5905-second median
+eligible-minus-control wall-time delta. One ineligible control recovered on its
+single allowed retry.
+
+Claude marketplace and plugin manifests validate, but autonomous Claude
+selection was not executed for this release because the local test account
+required reauthentication. No cross-host claim is made.
 
 ## Pilot scope
 
@@ -23,10 +52,9 @@ install **WORKS Public Verifier**.
 - Source: public GitHub repositories at immutable commits
 - Execution: static checks only
 
-WORKS stores bounded operational counts, duration, contract ID, receipt ID, and
-status for every verification. It does not store the repository URL, commit
-SHA, source, tool body, or credentials. Only explicit experiment consent adds
-a keyed installation hash.
+The automatic verification tool is read-only and stores no verification
+telemetry, repository URL, commit SHA, source, tool body, credentials, or
+installation identifier. Its signed receipt is returned to the caller only.
 
 A passing static receipt proves only the outcomes declared by its contract. It
 does not prove builds, tests, deployments, payments, runtime behavior, or market

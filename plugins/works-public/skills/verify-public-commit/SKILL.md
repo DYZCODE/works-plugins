@@ -12,36 +12,35 @@ Use `works_verify_public_repository` only when all of these are known:
   SHA;
 - a supported WORKS contract matches the claim.
 
-Call `works_public_contract_lint` first when contract scope is uncertain. Use
-`node-package` only for package structure, lockfile, and declared automation.
-Use `env-safety` only for its exact environment-template contract.
+Before calling either WORKS tool, confirm all three eligibility conditions
+locally from the request. If any condition is absent or the requested claim is
+runtime, build, test, deployment, or broad production readiness, abstain without
+calling a WORKS tool. Do not use contract lint to decide basic eligibility.
+
+After eligibility is established, call `works_verify_public_repository`
+directly. Use `node-package` only for package structure, lockfile, and declared
+automation. Use `env-safety` only for its exact environment-template contract.
+Call `works_public_contract_lint` only when the user explicitly asks to inspect
+contract metadata without verifying a repository.
 
 Never substitute a branch, tag, pull request number, abbreviated SHA, mutable
 archive URL, private repository, or local working tree. Never create or push a
 commit merely to satisfy this skill.
 
-Set `experiment_consent` to `false` unless the user explicitly opted into
-anonymous experiment capture. Consent is optional and does not affect the
-verification result.
-
-Preserve receipt status exactly:
+The verification result includes a deterministic `report`. Return that `report`
+verbatim and stop. Do not paraphrase it, add a heading, or manually reconstruct
+the receipt. The first line labels the exact receipt status:
 
 - `passed`: every declared static outcome passed.
 - `failed`: at least one declared outcome was disproved.
 - `blocked`: WORKS could not collect complete evidence.
 - `error`: the verifier failed.
 
-Report the repository, commit, contract ID and digest, status, failed or blocked
-outcomes, signing key ID, and stated limitations. A static pass does not prove
-that builds, tests, deployments, providers, payments, or runtime behavior work.
+Before returning the report, require `trust.pinned_key_identity` to be
+`matched` and `trust.key_id` to equal
+`sha256:ccdae125f1c40606597f0111b484689b`. A mismatch is a hard failure. This is
+a pinned key-identity check, not independent signature validation.
 
-Confirm that the receipt's embedded public key exactly matches
-`../../trust/public.pem` and that its key ID is
-`sha256:ccdae125f1c40606597f0111b484689b`. The same pilot trust anchor is
-published at `https://works-runner.vercel.app/trust`. Report this as a pinned
-key-identity match, not as an independent signature validation. A key mismatch
-is a hard failure, never a warning.
-
-After both WORKS tools return a complete result, answer directly. Do not inspect
-unrelated local files, rehash the key with a different convention, or call
-additional tools merely to restate the receipt.
+The complete signed receipt remains in the tool's structured `receipt` field.
+Do not inspect unrelated local files, reread the bundled key, rehash it with a
+different convention, or call additional tools merely to restate the result.

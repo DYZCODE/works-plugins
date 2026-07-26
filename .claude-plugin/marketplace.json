@@ -1,0 +1,33 @@
+{
+  "name": "works-plugins",
+  "owner": {
+    "name": "WORKS"
+  },
+  "metadata": {
+    "description": "Independent verification tools for coding agents."
+  },
+  "plugins": [
+    {
+      "name": "works-public",
+      "source": "./plugins/works-public",
+      "description": "Verify exact immutable public GitHub commits without executing repository code.",
+      "version": "0.1.4",
+      "homepage": "https://github.com/DYZCODE/works-plugins",
+      "repository": "https://github.com/DYZCODE/works-plugins",
+      "license": "MIT",
+      "category": "developer-tools",
+      "keywords": [
+        "verification",
+        "github",
+        "coding-agents",
+        "mcp"
+      ],
+      "tags": [
+        "verification",
+        "github",
+        "coding-agents",
+        "mcp"
+      ]
+    }
+  ]
+}

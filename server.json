@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.dyzcode/works-public",
+  "title": "WORKS Public Verifier",
+  "description": "Independent static verification for exact immutable public GitHub commits.",
+  "repository": {
+    "url": "https://github.com/DYZCODE/works-plugins",
+    "source": "github"
+  },
+  "version": "0.1.4",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://works-runner.vercel.app/mcp"
+    }
+  ]
+}
