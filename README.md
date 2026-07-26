@@ -26,7 +26,7 @@ disabled with `--no-signal`.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.9
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.10
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -37,7 +37,7 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.9
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.10
 claude plugin install works-public@works-plugins
 ```
 
@@ -59,7 +59,8 @@ GitHub namespace casing did not match the OIDC grant. `v0.1.7` published the
 correct Registry metadata but retained the previous Codex adapter version.
 `v0.1.8` aligned the Codex, Claude, and Registry release metadata. `v0.1.9`
 adds the one-command installer and its bodyless aggregate install signal without
-changing the validated verification tool or trust anchor.
+changing the validated verification tool or trust anchor. `v0.1.10` makes the
+installer replace older tag-pinned marketplace snapshots before reinstalling.
 
 ## Pilot evidence
 

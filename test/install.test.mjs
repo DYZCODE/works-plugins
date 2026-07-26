@@ -36,19 +36,28 @@ test("existing Codex install refreshes both marketplace and plugin", () => {
   assert.deepEqual(
     codexPlan({ marketplacePresent: true, pluginInstalled: true }),
     [
-      ["plugin", "marketplace", "upgrade", "works-plugins"],
       ["plugin", "remove", "works-public@works-plugins"],
+      ["plugin", "marketplace", "remove", "works-plugins"],
+      ["plugin", "marketplace", "add", "DYZCODE/works-plugins"],
       ["plugin", "add", "works-public@works-plugins"]
     ]
   );
 });
 
-test("existing Claude install uses native update commands", () => {
+test("existing Claude install replaces a potentially pinned marketplace", () => {
   assert.deepEqual(
     claudePlan({ marketplacePresent: true, pluginInstalled: true }),
     [
-      ["plugin", "marketplace", "update", "works-plugins"],
-      ["plugin", "update", "works-public@works-plugins"]
+      ["plugin", "uninstall", "works-public@works-plugins"],
+      ["plugin", "marketplace", "remove", "works-plugins"],
+      ["plugin", "marketplace", "add", "DYZCODE/works-plugins"],
+      [
+        "plugin",
+        "install",
+        "works-public@works-plugins",
+        "--scope",
+        "user"
+      ]
     ]
   );
 });

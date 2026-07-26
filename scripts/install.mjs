@@ -74,23 +74,23 @@ function json(command, args) {
 
 export function codexPlan({ marketplacePresent, pluginInstalled }) {
   return [
-    marketplacePresent
-      ? ["plugin", "marketplace", "upgrade", MARKETPLACE]
-      : ["plugin", "marketplace", "add", SOURCE],
-    ...(pluginInstalled
-      ? [["plugin", "remove", PLUGIN], ["plugin", "add", PLUGIN]]
-      : [["plugin", "add", PLUGIN]])
+    ...(pluginInstalled ? [["plugin", "remove", PLUGIN]] : []),
+    ...(marketplacePresent
+      ? [["plugin", "marketplace", "remove", MARKETPLACE]]
+      : []),
+    ["plugin", "marketplace", "add", SOURCE],
+    ["plugin", "add", PLUGIN]
   ];
 }
 
 export function claudePlan({ marketplacePresent, pluginInstalled }) {
   return [
-    marketplacePresent
-      ? ["plugin", "marketplace", "update", MARKETPLACE]
-      : ["plugin", "marketplace", "add", SOURCE],
-    pluginInstalled
-      ? ["plugin", "update", PLUGIN]
-      : ["plugin", "install", PLUGIN, "--scope", "user"]
+    ...(pluginInstalled ? [["plugin", "uninstall", PLUGIN]] : []),
+    ...(marketplacePresent
+      ? [["plugin", "marketplace", "remove", MARKETPLACE]]
+      : []),
+    ["plugin", "marketplace", "add", SOURCE],
+    ["plugin", "install", PLUGIN, "--scope", "user"]
   ];
 }
 
