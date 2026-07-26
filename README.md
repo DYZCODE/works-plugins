@@ -11,7 +11,7 @@ repository commands and supports only exact lowercase 40-character commit SHAs.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.7
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.8
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -22,7 +22,7 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.7
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.8
 claude plugin install works-public@works-plugins
 ```
 
@@ -40,8 +40,9 @@ available so supported hosts can also install the strict selection and
 abstention skill.
 
 The `v0.1.6` Registry attempt was rejected before publication because its
-GitHub namespace casing did not match the OIDC grant. `v0.1.7` corrects only
-that metadata and adds an automated namespace check.
+GitHub namespace casing did not match the OIDC grant. `v0.1.7` published the
+correct Registry metadata but retained the previous Codex adapter version.
+`v0.1.8` aligns the Codex, Claude, and Registry release metadata.
 
 ## Pilot evidence
 
