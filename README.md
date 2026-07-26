@@ -6,12 +6,27 @@ WORKS independently checks an immutable public GitHub commit against a pinned
 static contract and returns a signed receipt. The pilot never executes
 repository commands and supports only exact lowercase 40-character commit SHAs.
 
+## One-command install
+
+Install in every detected supported agent without supplying a Vercel credential:
+
+```console
+npx github:DYZCODE/works-plugins
+```
+
+Use `--client codex` or `--client claude` to select only one host. Restart the
+host after the installer completes.
+
+After success, the installer sends one bodyless aggregate install signal. It
+contains no installation ID, account, repository, payload, or cookie and can be
+disabled with `--no-signal`.
+
 ## Install in Codex
 
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.8
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.9
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -22,7 +37,7 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.8
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.9
 claude plugin install works-public@works-plugins
 ```
 
@@ -42,7 +57,9 @@ abstention skill.
 The `v0.1.6` Registry attempt was rejected before publication because its
 GitHub namespace casing did not match the OIDC grant. `v0.1.7` published the
 correct Registry metadata but retained the previous Codex adapter version.
-`v0.1.8` aligns the Codex, Claude, and Registry release metadata.
+`v0.1.8` aligned the Codex, Claude, and Registry release metadata. `v0.1.9`
+adds the one-command installer and its bodyless aggregate install signal without
+changing the validated verification tool or trust anchor.
 
 ## Pilot evidence
 

@@ -7,7 +7,7 @@
     "url": "https://github.com/DYZCODE/works-plugins",
     "source": "github"
   },
-  "version": "0.1.8",
+  "version": "0.1.9",
   "remotes": [
     {
       "type": "streamable-http",

@@ -1,0 +1,16 @@
+{
+  "name": "works-agent-install",
+  "version": "0.1.9",
+  "description": "One-command installer for the WORKS public agent verifier.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "works-install": "./scripts/install.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
