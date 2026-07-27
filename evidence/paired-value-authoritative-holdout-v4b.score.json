@@ -1,0 +1,135 @@
+{
+  "schema": "works.dev/paired-agent-score/v1",
+  "experiment_id": "paired-value-authoritative-holdout-v4b",
+  "model": "gpt-5.6-sol/low",
+  "policy": {
+    "minimum_decisive_pairs": 20,
+    "minimum_success_delta_percentage_points": 20,
+    "maximum_verifier_error_rate": 0.05,
+    "maximum_median_wall_overhead_ratio": 0.2,
+    "maximum_median_input_token_overhead_ratio": 0.25,
+    "minimum_automatic_selection_rate": 0.8,
+    "maximum_median_verification_calls": 2,
+    "maximum_verification_calls": 3,
+    "minimum_runtimes": 2,
+    "minimum_fixtures": 4,
+    "minimum_pairs_per_fixture": 5
+  },
+  "verdict": "scale_to_100",
+  "gates": {
+    "sample_sufficient": true,
+    "success_delta_at_least_20_points": true,
+    "retries_reduced_at_least_half": false,
+    "no_success_regression": true,
+    "automatic_selection_at_least_80_percent": true,
+    "verifier_error_rate_within_policy": true,
+    "median_wall_overhead_within_policy": true,
+    "median_input_overhead_within_policy": true,
+    "verification_calls_within_budget": true,
+    "minimum_sample_still_reachable": true,
+    "segment_coverage_still_reachable": true,
+    "multistack_segment_coverage": true,
+    "no_runtime_or_fixture_regression": true
+  },
+  "metrics": {
+    "tasks_submitted": 24,
+    "planned_tasks": 24,
+    "remaining_tasks": 0,
+    "maximum_decisive_pairs_possible": 23,
+    "maximum_runtime_pairs_possible": {
+      "python3.13": 12,
+      "node24": 11
+    },
+    "maximum_fixture_pairs_possible": {
+      "test/fixtures/workflow-python-monolith": 6,
+      "test/fixtures/workflow-python-layered": 6,
+      "test/fixtures/workflow-good": 6,
+      "test/fixtures/workflow-node-layered": 5
+    },
+    "decisive_pairs": 23,
+    "excluded_pairs": 1,
+    "baseline_passed": 7,
+    "works_passed": 21,
+    "baseline_success_rate": 0.30434782608695654,
+    "works_success_rate": 0.9130434782608695,
+    "success_delta_percentage_points": 60.869565217391305,
+    "additional_passes": 14,
+    "baseline_retries": 0,
+    "works_retries": 0,
+    "retry_reduction_ratio": 0,
+    "baseline_wall_ms_total": 2954665,
+    "works_wall_ms_total": 1604406,
+    "wall_ms_delta": -1350259,
+    "baseline_wall_ms_median": 118527,
+    "works_wall_ms_median": 65173,
+    "median_wall_overhead_ratio": -0.45014216170155325,
+    "baseline_input_tokens_total": 4730763,
+    "works_input_tokens_total": 3426075,
+    "baseline_input_tokens_median": 178901,
+    "works_input_tokens_median": 142329,
+    "median_input_token_overhead_ratio": -0.2044259115376661,
+    "input_tokens_delta": -1304688,
+    "baseline_output_tokens_total": 114780,
+    "works_output_tokens_total": 41236,
+    "output_tokens_delta": -73544,
+    "works_verification_attempts_total": 42,
+    "works_verification_calls_total": 42,
+    "works_verification_calls_median": 2,
+    "works_verification_calls_max": 3,
+    "works_verification_result_bytes_total": 45859,
+    "works_verification_result_bytes_median": 2184,
+    "works_verification_result_bytes_per_call": 1091.8809523809523,
+    "works_verification_selection_rate": 1,
+    "works_infrastructure_errors": 1,
+    "works_infrastructure_error_rate": 0.041666666666666664,
+    "maximum_infrastructure_errors_at_minimum_sample": 1
+  },
+  "segments": {
+    "runtimes": [
+      {
+        "value": "node24",
+        "decisive_pairs": 11,
+        "baseline_passed": 3,
+        "works_passed": 11,
+        "success_delta_percentage_points": 72.72727272727273
+      },
+      {
+        "value": "python3.13",
+        "decisive_pairs": 12,
+        "baseline_passed": 4,
+        "works_passed": 10,
+        "success_delta_percentage_points": 50
+      }
+    ],
+    "fixtures": [
+      {
+        "value": "test/fixtures/workflow-good",
+        "decisive_pairs": 6,
+        "baseline_passed": 1,
+        "works_passed": 6,
+        "success_delta_percentage_points": 83.33333333333333
+      },
+      {
+        "value": "test/fixtures/workflow-node-layered",
+        "decisive_pairs": 5,
+        "baseline_passed": 2,
+        "works_passed": 5,
+        "success_delta_percentage_points": 60
+      },
+      {
+        "value": "test/fixtures/workflow-python-layered",
+        "decisive_pairs": 6,
+        "baseline_passed": 3,
+        "works_passed": 5,
+        "success_delta_percentage_points": 33.333333333333336
+      },
+      {
+        "value": "test/fixtures/workflow-python-monolith",
+        "decisive_pairs": 6,
+        "baseline_passed": 1,
+        "works_passed": 5,
+        "success_delta_percentage_points": 66.66666666666667
+      }
+    ]
+  }
+}

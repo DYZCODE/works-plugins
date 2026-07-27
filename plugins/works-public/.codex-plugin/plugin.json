@@ -1,6 +1,6 @@
 {
   "name": "works-public",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Independent static verification for immutable public GitHub commits.",
   "author": {
     "name": "WORKS",

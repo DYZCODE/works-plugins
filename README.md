@@ -26,7 +26,7 @@ disabled with `--no-signal`.
 Add this repository as a marketplace:
 
 ```console
-codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.12
+codex plugin marketplace add DYZCODE/works-plugins --ref v0.1.13
 ```
 
 Restart the ChatGPT desktop app, open Plugins, choose **WORKS Plugins**, and
@@ -37,7 +37,7 @@ install **WORKS Public Verifier**.
 Add the same repository as a marketplace and install the plugin:
 
 ```console
-claude plugin marketplace add DYZCODE/works-plugins@v0.1.12
+claude plugin marketplace add DYZCODE/works-plugins@v0.1.13
 claude plugin install works-public@works-plugins
 ```
 
@@ -65,6 +65,9 @@ installer replace older tag-pinned marketplace snapshots before reinstalling.
 testable installer package.
 `v0.1.12` publishes the rejected v3 scale result and its successful targeted
 v4 corrective canary without changing the public static verifier or trust anchor.
+`v0.1.13` publishes the passing reserved v4b holdout and advances only the
+technical evidence state; billing, the verifier, and the trust anchor are
+unchanged.
 
 ## Pilot evidence
 
@@ -88,7 +91,14 @@ WORKS retained a 23.33-point success lift and neutral median wall time, but
 missed the 25% token limit at 26.44% and exhausted its final error budget. A
 targeted four-case corrective canary then passed 4/4 with 68.32% lower median
 input tokens and 67.08% lower median wall time than the corresponding v3 arms.
-That canary validates the correction only; a fresh holdout is still required.
+
+The reserved fresh v4b holdout then completed 23 decisive pairs. WORKS passed
+21/23 while the same model without WORKS passed 7/23, a 60.87-point lift.
+Median wall time fell 45.01% and median input tokens fell 20.44%. All frozen
+runtime, fixture, verifier-call, selection, and error gates passed. One WORKS
+arm timed out, and two Python repairs failed in both arms. This clears the
+technical pilot gate; it does not prove organic routing, real-repository
+performance, retention, willingness to pay, or a durable moat.
 
 ## Pilot scope
 
