@@ -1,0 +1,31 @@
+{
+  "schema": "works.dev/priority-canary-score/v1",
+  "experiment_id": "paired-response-priority-canary-v3",
+  "model": "gpt-5.6-sol/low",
+  "verdict": "adopt_authoritative_early",
+  "gates": {
+    "sample_at_least_four": true,
+    "priority_passes_every_task": true,
+    "pass_count_improves": true,
+    "median_input_reduced_at_least_10_percent": true,
+    "median_wall_reduced_at_least_20_percent": true,
+    "calls_within_budget": true,
+    "no_full_receipt_reads": true,
+    "no_infrastructure_errors": true
+  },
+  "metrics": {
+    "tasks_submitted": 4,
+    "baseline_passed": 0,
+    "priority_passed": 4,
+    "baseline_input_tokens_median": 354233,
+    "priority_input_tokens_median": 112233,
+    "median_input_token_reduction_ratio": 0.6831661646430457,
+    "baseline_wall_ms_median": 290018.5,
+    "priority_wall_ms_median": 95461,
+    "median_wall_reduction_ratio": 0.6708451357413406,
+    "priority_verification_calls_median": 1.5,
+    "priority_verification_calls_max": 2,
+    "priority_full_receipt_reads": 0,
+    "priority_infrastructure_errors": 0
+  }
+}

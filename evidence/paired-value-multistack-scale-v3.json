@@ -1,0 +1,976 @@
+{
+  "schema": "works.dev/paired-agent-benchmark/v1",
+  "experiment_id": "paired-value-multistack-scale-v3",
+  "model": "gpt-5.6-sol/low",
+  "policy": {
+    "minimum_decisive_pairs": 100,
+    "minimum_success_delta_percentage_points": 20,
+    "maximum_verifier_error_rate": 0.02,
+    "maximum_median_wall_overhead_ratio": 0.2,
+    "maximum_median_input_token_overhead_ratio": 0.25,
+    "minimum_automatic_selection_rate": 0.8,
+    "maximum_median_verification_calls": 2,
+    "maximum_verification_calls": 5,
+    "minimum_runtimes": 2,
+    "minimum_fixtures": 4,
+    "minimum_pairs_per_fixture": 25
+  },
+  "tasks": [
+    {
+      "task_id": "scale-node-monolith-webhook",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 137688,
+        "input_tokens": 177086,
+        "output_tokens": 5534,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 104887,
+        "input_tokens": 211866,
+        "output_tokens": 3636,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 799
+      }
+    },
+    {
+      "task_id": "scale-node-layered-webhook",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 212068,
+        "input_tokens": 234247,
+        "output_tokens": 7457,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 163379,
+        "input_tokens": 282974,
+        "output_tokens": 5435,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2311
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-webhook",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 140325,
+        "input_tokens": 168301,
+        "output_tokens": 5288,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 127755,
+        "input_tokens": 210724,
+        "output_tokens": 4342,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 808
+      }
+    },
+    {
+      "task_id": "scale-python-layered-webhook",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 133703,
+        "input_tokens": 179567,
+        "output_tokens": 5476,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 136557,
+        "input_tokens": 225933,
+        "output_tokens": 5075,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 807
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-cancellation",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 104064,
+        "input_tokens": 180157,
+        "output_tokens": 2843,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 109255,
+        "input_tokens": 216622,
+        "output_tokens": 2854,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 804
+      }
+    },
+    {
+      "task_id": "scale-node-layered-cancellation",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 219096,
+        "input_tokens": 366292,
+        "output_tokens": 7856,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 146750,
+        "input_tokens": 287188,
+        "output_tokens": 5005,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 803
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-cancellation",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 121736,
+        "input_tokens": 123294,
+        "output_tokens": 4898,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 156241,
+        "input_tokens": 321397,
+        "output_tokens": 5734,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 813
+      }
+    },
+    {
+      "task_id": "scale-python-layered-cancellation",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 126919,
+        "input_tokens": 180584,
+        "output_tokens": 4040,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 71021,
+        "input_tokens": 143641,
+        "output_tokens": 1236,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 812
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-logout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 67368,
+        "input_tokens": 102547,
+        "output_tokens": 1979,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 169711,
+        "input_tokens": 272995,
+        "output_tokens": 5825,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 1983
+      }
+    },
+    {
+      "task_id": "scale-node-layered-logout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 122919,
+        "input_tokens": 198808,
+        "output_tokens": 4372,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 63232,
+        "input_tokens": 128135,
+        "output_tokens": 1163,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 797
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-logout",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 110805,
+        "input_tokens": 182133,
+        "output_tokens": 4058,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 106908,
+        "input_tokens": 237153,
+        "output_tokens": 2712,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 807
+      }
+    },
+    {
+      "task_id": "scale-python-layered-logout",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 110728,
+        "input_tokens": 178533,
+        "output_tokens": 3964,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 67087,
+        "input_tokens": 144218,
+        "output_tokens": 1517,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 806
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-welcome",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 150685,
+        "input_tokens": 194869,
+        "output_tokens": 6437,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "error",
+        "attempts": 1,
+        "wall_ms": 361244,
+        "input_tokens": 500876,
+        "output_tokens": 6696,
+        "verification_attempts": 3,
+        "verification_calls": 3,
+        "verification_errors": 0,
+        "verification_result_bytes": 4373,
+        "launcher_error": "timed out after 360000 ms"
+      }
+    },
+    {
+      "task_id": "scale-node-layered-welcome",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 186190,
+        "input_tokens": 215082,
+        "output_tokens": 7410,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 108244,
+        "input_tokens": 151434,
+        "output_tokens": 3675,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 798
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-welcome",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 202988,
+        "input_tokens": 321879,
+        "output_tokens": 7536,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 218793,
+        "input_tokens": 428722,
+        "output_tokens": 7703,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2003
+      }
+    },
+    {
+      "task_id": "scale-python-layered-welcome",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 157859,
+        "input_tokens": 166577,
+        "output_tokens": 6354,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 161759,
+        "input_tokens": 279744,
+        "output_tokens": 5592,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2001
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-checkout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 154368,
+        "input_tokens": 205701,
+        "output_tokens": 6154,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 160873,
+        "input_tokens": 345887,
+        "output_tokens": 5637,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2348
+      }
+    },
+    {
+      "task_id": "scale-node-layered-checkout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 143183,
+        "input_tokens": 174385,
+        "output_tokens": 5066,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "error",
+        "attempts": 1,
+        "wall_ms": 361264,
+        "input_tokens": 240937,
+        "output_tokens": 5187,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2313,
+        "launcher_error": "timed out after 360000 ms"
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-checkout",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 225013,
+        "input_tokens": 365759,
+        "output_tokens": 8641,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 141747,
+        "input_tokens": 207521,
+        "output_tokens": 5517,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2005
+      }
+    },
+    {
+      "task_id": "scale-python-layered-checkout",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 103543,
+        "input_tokens": 113186,
+        "output_tokens": 4680,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 142538,
+        "input_tokens": 269752,
+        "output_tokens": 4843,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2003
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-webhook-logout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 161056,
+        "input_tokens": 253743,
+        "output_tokens": 6158,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 194263,
+        "input_tokens": 474831,
+        "output_tokens": 6022,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 806
+      }
+    },
+    {
+      "task_id": "scale-node-layered-webhook-cancellation",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 153320,
+        "input_tokens": 210333,
+        "output_tokens": 4520,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 132871,
+        "input_tokens": 269633,
+        "output_tokens": 4040,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 811
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-webhook-logout",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 140315,
+        "input_tokens": 188189,
+        "output_tokens": 5467,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 136974,
+        "input_tokens": 168595,
+        "output_tokens": 4788,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 815
+      }
+    },
+    {
+      "task_id": "scale-python-layered-webhook-cancellation",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 142238,
+        "input_tokens": 164904,
+        "output_tokens": 5099,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 124134,
+        "input_tokens": 217223,
+        "output_tokens": 3985,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 820
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-webhook-welcome",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 222361,
+        "input_tokens": 293695,
+        "output_tokens": 5837,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 172324,
+        "input_tokens": 274065,
+        "output_tokens": 5133,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2148
+      }
+    },
+    {
+      "task_id": "scale-node-layered-webhook-logout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 81789,
+        "input_tokens": 126702,
+        "output_tokens": 2758,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 169318,
+        "input_tokens": 341727,
+        "output_tokens": 4651,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2157
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-webhook-welcome",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 148145,
+        "input_tokens": 215107,
+        "output_tokens": 5674,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 177704,
+        "input_tokens": 326646,
+        "output_tokens": 6161,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2239
+      }
+    },
+    {
+      "task_id": "scale-python-layered-webhook-welcome",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 130094,
+        "input_tokens": 124901,
+        "output_tokens": 5395,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 140308,
+        "input_tokens": 247029,
+        "output_tokens": 3990,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 815
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-cancellation-logout",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 154360,
+        "input_tokens": 328410,
+        "output_tokens": 4906,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 131916,
+        "input_tokens": 232862,
+        "output_tokens": 4357,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2009
+      }
+    },
+    {
+      "task_id": "scale-node-layered-cancellation-welcome",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "error",
+        "attempts": 1,
+        "wall_ms": 361242,
+        "input_tokens": 189887,
+        "output_tokens": 5416,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0,
+        "launcher_error": "timed out after 360000 ms"
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 99761,
+        "input_tokens": 204235,
+        "output_tokens": 1835,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2061
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-cancellation-logout",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 131720,
+        "input_tokens": 205163,
+        "output_tokens": 4685,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 153069,
+        "input_tokens": 264921,
+        "output_tokens": 3247,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 820
+      }
+    },
+    {
+      "task_id": "scale-python-layered-cancellation-logout",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 144088,
+        "input_tokens": 194737,
+        "output_tokens": 4555,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 111427,
+        "input_tokens": 175609,
+        "output_tokens": 3337,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 819
+      }
+    },
+    {
+      "task_id": "scale-node-monolith-cancellation-welcome",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 181606,
+        "input_tokens": 284392,
+        "output_tokens": 6252,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 181739,
+        "input_tokens": 202914,
+        "output_tokens": 5655,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 812
+      }
+    },
+    {
+      "task_id": "scale-node-layered-logout-checkout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 196634,
+        "input_tokens": 223897,
+        "output_tokens": 6099,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0
+      },
+      "works": {
+        "status": "error",
+        "attempts": 1,
+        "wall_ms": 16461,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "verification_attempts": 0,
+        "verification_calls": 0,
+        "verification_errors": 0,
+        "verification_result_bytes": 0,
+        "launcher_error": "codex exited 1: Reading additional input from stdin...\n2026-07-27T01:14:25.430840Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell"
+      }
+    }
+  ]
+}

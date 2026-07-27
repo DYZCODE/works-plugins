@@ -40,9 +40,54 @@ SHA-256:
 6054e7d3a63a8d655417778949d1bdab4ce5ee9aa4bbcce40e03d0fc572eb349  paired-value-multistack-pilot-v2.score.json
 ```
 
+## Scale v3 early stop
+
+Decision: `kill_or_pivot`.
+
+The frozen 100-pair plan stopped at task 34 because the third WORKS-arm error
+made its final 2% error budget mathematically unreachable.
+
+| Metric | Control | WORKS |
+| --- | ---: | ---: |
+| Decisive passes | 15/30 | 22/30 |
+| Success rate | 50.00% | 73.33% |
+| Median wall time | 141.3 s | 141.0 s |
+| Median input tokens | 191,463 | 242,091 |
+| Arm errors | 1 | 3 |
+
+WORKS improved success by 23.33 points but missed the frozen input-token limit
+at 26.44%. Two WORKS agents crossed the six-minute cutoff and one launch failed
+when the selected model was at capacity. Verifier errors were zero, but the
+end-to-end policy counts all arm errors.
+
+## Authoritative-early corrective canary
+
+Decision: `adopt_authoritative_early`.
+
+Four known v3 failures were rerun with instructions to verify after one coherent
+repair, use compact failed-step guidance, avoid reading the full receipt, and
+stop after `passed`.
+
+| Metric | v3 arms | Corrective arms |
+| --- | ---: | ---: |
+| Passed | 0/4 | 4/4 |
+| Median input tokens | 354,233 | 112,233 |
+| Median wall time | 290.0 s | 95.5 s |
+| Median verifier calls | 2 | 1.5 |
+| Full receipt reads | not instrumented | 0 |
+
+Files and SHA-256:
+
+```text
+abfb91bc40204a9d14691fa609426ad6c73f5a0481e6096a00e82942b23d87b3  paired-value-multistack-scale-v3.json
+22c287f1e5fe074d0b6d1fc8b0c952d985a112676a84e0b5042809c7cbb6d51f  paired-value-multistack-scale-v3.early-stop.score.json
+547a11bfcddcefc5768dd1ef3f7ec62d1243554eea3229e5efeece10917774cf  paired-response-priority-canary-v3.json
+a7f9a4a6dd1c1510a18f42a5b8647ea43b236f7933bc5320ddb9017ab8b15d7b  paired-response-priority-canary-v3.score.json
+```
+
 ## Limits
 
 This is technical evidence, not market evidence. The repositories are synthetic,
 the run used one model/version, and it does not measure organic users, retention,
 willingness to pay, production repairs, or dollar unit economics. The valid next
-step is a larger technical run while billing remains disabled.
+step is a fresh v4 holdout while billing remains disabled.

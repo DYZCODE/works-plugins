@@ -1,0 +1,121 @@
+{
+  "schema": "works.dev/paired-agent-score/v1",
+  "experiment_id": "paired-value-multistack-scale-v3",
+  "model": "gpt-5.6-sol/low",
+  "policy": {
+    "minimum_decisive_pairs": 100,
+    "minimum_success_delta_percentage_points": 20,
+    "maximum_verifier_error_rate": 0.02,
+    "maximum_median_wall_overhead_ratio": 0.2,
+    "maximum_median_input_token_overhead_ratio": 0.25,
+    "minimum_automatic_selection_rate": 0.8,
+    "maximum_median_verification_calls": 2,
+    "maximum_verification_calls": 5,
+    "minimum_runtimes": 2,
+    "minimum_fixtures": 4,
+    "minimum_pairs_per_fixture": 25
+  },
+  "verdict": "kill_or_pivot",
+  "gates": {
+    "sample_sufficient": false,
+    "success_delta_at_least_20_points": true,
+    "retries_reduced_at_least_half": false,
+    "no_success_regression": true,
+    "automatic_selection_at_least_80_percent": true,
+    "verifier_error_rate_within_policy": false,
+    "median_wall_overhead_within_policy": true,
+    "median_input_overhead_within_policy": false,
+    "verification_calls_within_budget": true,
+    "minimum_sample_still_reachable": false,
+    "multistack_segment_coverage": false,
+    "no_runtime_or_fixture_regression": true
+  },
+  "metrics": {
+    "tasks_submitted": 34,
+    "decisive_pairs": 30,
+    "excluded_pairs": 4,
+    "baseline_passed": 15,
+    "works_passed": 22,
+    "baseline_success_rate": 0.5,
+    "works_success_rate": 0.7333333333333333,
+    "success_delta_percentage_points": 23.333333333333332,
+    "additional_passes": 7,
+    "baseline_retries": 0,
+    "works_retries": 0,
+    "retry_reduction_ratio": 0,
+    "baseline_wall_ms_total": 4428472,
+    "works_wall_ms_total": 4182784,
+    "wall_ms_delta": -245688,
+    "baseline_wall_ms_median": 141281.5,
+    "works_wall_ms_median": 141027.5,
+    "median_wall_overhead_ratio": -0.0017978291566836423,
+    "baseline_input_tokens_total": 6250009,
+    "works_input_tokens_total": 7561961,
+    "baseline_input_tokens_median": 191463,
+    "works_input_tokens_median": 242091,
+    "median_input_token_overhead_ratio": 0.26442706945989564,
+    "input_tokens_delta": 1311952,
+    "baseline_output_tokens_total": 159846,
+    "works_output_tokens_total": 132867,
+    "output_tokens_delta": -26979,
+    "works_verification_attempts_total": 48,
+    "works_verification_calls_total": 48,
+    "works_verification_calls_median": 1,
+    "works_verification_calls_max": 3,
+    "works_verification_result_bytes_total": 47326,
+    "works_verification_result_bytes_median": 817,
+    "works_verification_result_bytes_per_call": 985.9583333333334,
+    "works_verification_selection_rate": 0.9705882352941176,
+    "works_infrastructure_errors": 3,
+    "works_infrastructure_error_rate": 0.08823529411764706,
+    "maximum_infrastructure_errors_at_minimum_sample": 2
+  },
+  "segments": {
+    "runtimes": [
+      {
+        "value": "node24",
+        "decisive_pairs": 14,
+        "baseline_passed": 8,
+        "works_passed": 12,
+        "success_delta_percentage_points": 28.571428571428573
+      },
+      {
+        "value": "python3.13",
+        "decisive_pairs": 16,
+        "baseline_passed": 7,
+        "works_passed": 10,
+        "success_delta_percentage_points": 18.75
+      }
+    ],
+    "fixtures": [
+      {
+        "value": "test/fixtures/workflow-good",
+        "decisive_pairs": 8,
+        "baseline_passed": 4,
+        "works_passed": 7,
+        "success_delta_percentage_points": 37.5
+      },
+      {
+        "value": "test/fixtures/workflow-node-layered",
+        "decisive_pairs": 6,
+        "baseline_passed": 4,
+        "works_passed": 5,
+        "success_delta_percentage_points": 16.666666666666668
+      },
+      {
+        "value": "test/fixtures/workflow-python-layered",
+        "decisive_pairs": 8,
+        "baseline_passed": 4,
+        "works_passed": 5,
+        "success_delta_percentage_points": 12.5
+      },
+      {
+        "value": "test/fixtures/workflow-python-monolith",
+        "decisive_pairs": 8,
+        "baseline_passed": 3,
+        "works_passed": 5,
+        "success_delta_percentage_points": 25
+      }
+    ]
+  }
+}

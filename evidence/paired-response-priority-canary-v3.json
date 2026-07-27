@@ -1,0 +1,123 @@
+{
+  "schema": "works.dev/paired-agent-benchmark/v1",
+  "experiment_id": "paired-response-priority-canary-v3",
+  "model": "gpt-5.6-sol/low",
+  "tasks": [
+    {
+      "task_id": "scale-node-monolith-welcome",
+      "fixture": "test/fixtures/workflow-good",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "error",
+        "attempts": 1,
+        "wall_ms": 361244,
+        "input_tokens": 500876,
+        "output_tokens": 6696,
+        "verification_attempts": 3,
+        "verification_calls": 3,
+        "verification_errors": 0,
+        "verification_result_bytes": 4373
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 88320,
+        "input_tokens": 106542,
+        "output_tokens": 2690,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 862,
+        "full_receipt_reads": 0
+      }
+    },
+    {
+      "task_id": "scale-node-layered-checkout",
+      "fixture": "test/fixtures/workflow-node-layered",
+      "contract": "saas-workflow-simulated",
+      "runtime": "node24",
+      "baseline": {
+        "status": "error",
+        "attempts": 1,
+        "wall_ms": 361264,
+        "input_tokens": 240937,
+        "output_tokens": 5187,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2313
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 135327,
+        "input_tokens": 200313,
+        "output_tokens": 3284,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2138,
+        "full_receipt_reads": 0
+      }
+    },
+    {
+      "task_id": "scale-python-monolith-welcome",
+      "fixture": "test/fixtures/workflow-python-monolith",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 218793,
+        "input_tokens": 428722,
+        "output_tokens": 7703,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2003
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 81706,
+        "input_tokens": 106183,
+        "output_tokens": 2349,
+        "verification_attempts": 1,
+        "verification_calls": 1,
+        "verification_errors": 0,
+        "verification_result_bytes": 871,
+        "full_receipt_reads": 0
+      }
+    },
+    {
+      "task_id": "scale-python-layered-welcome",
+      "fixture": "test/fixtures/workflow-python-layered",
+      "contract": "saas-workflow-python-simulated",
+      "runtime": "python3.13",
+      "baseline": {
+        "status": "failed",
+        "attempts": 1,
+        "wall_ms": 161759,
+        "input_tokens": 279744,
+        "output_tokens": 5592,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 2001
+      },
+      "works": {
+        "status": "passed",
+        "attempts": 1,
+        "wall_ms": 102602,
+        "input_tokens": 117924,
+        "output_tokens": 1400,
+        "verification_attempts": 2,
+        "verification_calls": 2,
+        "verification_errors": 0,
+        "verification_result_bytes": 1993,
+        "full_receipt_reads": 0
+      }
+    }
+  ]
+}
